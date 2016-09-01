@@ -1,0 +1,63 @@
+>>> from posts.models import Post
+>>> Post.objects.all()
+[<Post: Titulo>, <Post: Post 2>, <Post: New post>, <Post: SaveContinueEditing>, <Post: MaraSalvatrucha>]
+>>> Post.objects.all
+<bound method Manager.all of <django.db.models.manager.Manager object at 0xb667c08c>>
+>>> Post.objects.all()
+[<Post: Titulo>, <Post: Post 2>, <Post: New post>, <Post: SaveContinueEditing>, <Post: MaraSalvatrucha>]
+>>> Post.objects.filter(title="abc")
+[]
+>>> Post.objects.filter(title__icontains="abc")
+[]
+>>> Post.objects.create(title='New post from shell', content='content from shell')
+<Post: New post from shell>
+>>> Post.objects.all()
+[<Post: Titulo>, <Post: Post 2>, <Post: New post>, <Post: SaveContinueEditing>, <Post: MaraSalvatrucha>, <Post: New post from shell>]
+
+>>> for obj in queryset:
+...     print(obj.title)
+...     print(obj.content)
+...     print(obj.updated)
+...     print(obj.timestamp)
+...     print(obj.id)
+...     print(obj.pk)
+... 
+Titulo
+Some contenido.
+2016-08-15 18:42:31.893875+00:00
+2016-08-15 18:41:19.562514+00:00
+1
+1
+Post 2
+added post2
+2016-08-15 18:42:43.477868+00:00
+2016-08-15 18:42:43.477929+00:00
+2
+2
+New post
+New content
+2016-08-15 18:59:47.226417+00:00
+2016-08-15 18:59:47.226479+00:00
+3
+3
+SaveContinueEditing
+testing
+(waited a minute here)
+(waited another minute)
+2016-08-15 19:25:13.954601+00:00
+2016-08-15 19:00:19.792900+00:00
+4
+4
+MaraSalvatrucha
+Dos pupupas
+Por un dolar.
+2016-08-15 19:37:34.081625+00:00
+2016-08-15 19:37:34.082109+00:00
+5
+5
+New post from shell
+content from shell
+2016-08-17 16:55:46.898622+00:00
+2016-08-17 16:55:46.898875+00:00
+6
+6
